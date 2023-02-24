@@ -1,0 +1,11 @@
+### POST body
+POST http://127.0.0.1:8080/parse
+Content-Type: application/json
+
+{
+    "name": "john",
+    "age": "17"
+}
+
+### GET
+GET http://127.0.0.1:8080/hello

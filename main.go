@@ -1,6 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+)
 
 type hellohandler struct{}
 
@@ -16,6 +19,24 @@ func (mh *abouthandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func welcome(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Welcome!"))
+}
+
+func parse(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
+	fmt.Println(r.Method)
+	fmt.Println(r.URL.Path)
+	fmt.Println(r.URL.Scheme)
+	for key, val := range r.Form {
+		fmt.Printf("key: %v\n", key)
+		fmt.Printf("val: %v\n", val)
+	}
+	fmt.Println(r.Header)
+
+	body := make([]byte, r.ContentLength)
+	r.Body.Read(body)
+	fmt.Println(string(body))
+
+	fmt.Fprintf(w, "parse successful")
 }
 
 func main() {
@@ -38,6 +59,8 @@ func main() {
 	// 下面等价
 	// http.HandleFunc("/welcome", welcome)
 	http.Handle("/welcome", http.HandlerFunc(welcome))
-	server.ListenAndServe()
+	http.HandleFunc("/parse", parse)
+	http.Handle("/", http.FileServer(http.Dir("wwwroot")))
 
+	server.ListenAndServe()
 }
