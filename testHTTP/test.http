@@ -8,4 +8,7 @@ Content-Type: application/json
 }
 
 ### GET
-GET http://127.0.0.1:8080/hello
+GET http://127.0.0.1:8080/parse?id=456&thread_id=hello&id=789&thread_id=nihao
+
+### GET
+GET http://127.0.0.1:8080/welcome
