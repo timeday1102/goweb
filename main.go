@@ -24,6 +24,6 @@ func main() {
 	http.Handle("/welcome", http.HandlerFunc(welcome))
 	http.HandleFunc("/parse", handle.Parse)
 	http.Handle("/", http.FileServer(http.Dir("wwwroot")))
-
+	http.HandleFunc("/login", handle.Login)
 	server.ListenAndServe()
 }
