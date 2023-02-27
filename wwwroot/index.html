@@ -4,32 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>go web</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
 </head>
 <body>
     <h1>go web index</h1>
-    enctype="application/x-www-form-urlencoded":
-    <form action="/parse" method="post" enctype="application/x-www-form-urlencoded">
-        <input type="text" name="name" />
-        <input type="text" name="value" />
-        <input type="submit" value="提交" />
-    </form>
-    <br />
-    enctype="multipart/form-data"
-    <form action="/parse" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" />
-        <input type="submit" value="提交" />
-    </form>
-    <br />
-    File
-    <form action="/parse" method="post" enctype="multipart/form-data">
-        <input type="file" name="uploadFile" />
-        <input type="submit" value="提交">
-    </form>
-    <br />
-    <form action="/login" method="post">
-        用户名：<input type="text" name="username" /><br />
-        密码：<input type="text" name="password" /><br />
-        <input type="submit" value="登录">
-    </form>
+    <div>
+        enctype="application/x-www-form-urlencoded":
+        <form action="/parse" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="text" name="name" />
+            <input type="text" name="value" />
+            <input type="submit" value="提交" />
+        </form>
+        <br />
+        enctype="multipart/form-data"
+        <form action="/parse" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" />
+            <input type="submit" value="提交" />
+        </form>
+    </div>
+    <div>
+        <form action="/parse" method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadFile" />
+            <input type="submit" value="提交">
+        </form>
+    </div>
+    <div>
+        <form action="/login" method="post">
+            <table>
+                <tr>
+                    <td class="logintd">用户名:</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td class="logintd">密码：</td>
+                    <td><input type="text" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="登录"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </body>
 </html>

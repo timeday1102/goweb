@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50%;
+            height: 200px;
+            border-width: 5px;
+            border-style: double;
+            border-color: red;
+        }
+        p {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {{if .Boolean}}
+        <p>The number is greater than 5</p>
+        {{else}}
+        <p>The number is not greater than 5</p>
+        {{end}}
+    </div>
+    <div>
+        <ul>
+            {{range .DaysOfWeek}}
+            <li>{{.}}</li>
+            {{else}}
+            <li>Nothing to show</li>
+            {{end}}
+        </ul>
+    </div>
+</body>
+</html>
