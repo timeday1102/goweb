@@ -1,8 +1,12 @@
 package main
 
 import (
+	"context"
+	"database/sql"
+	"log"
 	"net/http"
 
+	_ "github.com/lib/pq"
 	"github.com/timeday1102/goweb/handle"
 )
 
@@ -12,6 +16,18 @@ func welcome(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	connStr := "user=test password=test54Pt8@52#1 dbname=postgres port=19845 host=101.43.34.22 sslmode=require"
+	db, err := sql.Open("postgres", connStr)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if err := db.PingContext(context.Background()); err != nil {
+		log.Fatal(err)
+	} else {
+		log.Println("Connected!")
+	}
 
 	// http.ListenAndServe("localhost:8080", nil) // DefaultServeMux
 
